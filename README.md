@@ -17,8 +17,8 @@ This repository is not meant to redistribute the sources of the mods it pertains
   
 
 
-# OOSProduction:
-A problem exists where a file or function cannot be found; I am not sure where this problem stems from, it might be a compatibility problem between two mods.
+~~# OOSProduction:
+A problem exists where a file or function cannot be found; I am not sure where this problem stems from, it might be a compatibility problem between two mods.~~ Accounted for. (this is due to Avorion's default behaviour of attempting to make clients run the same script as the server does; this leads to errors when that script is not present on the client and can usually be safely ignored.)
 
 
 
