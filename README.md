@@ -15,6 +15,11 @@ This repository is not meant to redistribute the sources of the mods it pertains
   A change, likely in Avorion's vanilla scripts makes the version incompatible. the following commit should resolve this:
   https://github.com/Joeppie/AvorionModFixes/commit/4feb7b016967fd4e16c88252412fce6f6615faff
   
+  A second commit: 
+  https://github.com/Joeppie/AvorionModFixes/commit/66f07d2a32f9bcf8d9a95992a9c529225c61f4e8
+  
+  Should resolve another problem, of unknown cause.
+  
 
 
 ~~# OOSProduction:
