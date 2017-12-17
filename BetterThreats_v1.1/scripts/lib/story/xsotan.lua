@@ -449,7 +449,7 @@ function Xsotan.infectShip(ship)
 
         local attach = tree:getBlocksByBox(Box(p, vec3(0.1, 0.1, 0.1)))
         if attach then
-            plan:addPlanDisplaced(attach.index, addition, addition.rootIndex, p)
+            plan:addPlanDisplaced(attach, addition, addition.rootIndex, p)
         end
     end
 
