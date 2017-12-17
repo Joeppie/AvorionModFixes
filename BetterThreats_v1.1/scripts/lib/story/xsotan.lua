@@ -122,7 +122,7 @@ function Xsotan.createCarrier(position, volumeFactor, fighters)
     --ship:addScript("story/xsotanbehaviour.lua")
     --ship:setValue("is_xsotan", 1)
 
-    return createShip(position, volumeFactor)
+    return Xsotan.createShip(position, volumeFactor)
 end
 
 local function attachMax(plan, attachment, dimStr)
