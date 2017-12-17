@@ -52,6 +52,7 @@ function Xsotan.createShip(position, volumeFactor)
     -- Xsotan have random turrets
     TurretGenerator.initialize(random():createSeed())
     local turret = TurretGenerator.generateArmed(x, y)
+    local volumeFactor = (volumeFactor or 1) -- Joeppie/Inaptitude: fix for access to nill on the line below.
     local numTurrets = math.max(2, Balancing_GetEnemySectorTurrets(x, y) * 0.75 * math.max(1,(volumeFactor/5)))
 
     ShipUtility.addTurretsToCraft(ship, turret, numTurrets)
