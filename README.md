@@ -1,13 +1,13 @@
 # AvorionModFixes
 Some fixes for Avorion Mods
 
-#LICENSE
+# LICENSE
 
 I do not own any of this code, the fixes will be minimal in nature.
 
 This repository is not meant to redistribute the sources of the mods it pertains to; it is intended to distribute the fixes for a specific version to these mods.
 
-#Fixes
+# Fixes
 
 
 
