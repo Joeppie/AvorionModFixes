@@ -215,6 +215,7 @@ function createEnemies(size, volumes)
         enemy.title = p.title
 
         local distance = enemy:getBoundingSphere().radius + 20
+        enemy:addScript("deleteonplayersleft.lua")
 
         pos = pos + right * distance
 

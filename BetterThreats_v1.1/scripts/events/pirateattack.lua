@@ -84,17 +84,17 @@ function PirateAttack.initialize()
 
     local generator = AsyncPirateGenerator(PirateAttack, PirateAttack.onPiratesGenerated)
     generator:startBatch()
-	
+
 	local rndScale = getInt(0, 10)
-	
+
 	local rndScaleFactor = 1 + (rndScale / 5)
-	
-	local threatlvl = rndScale * attackType	
+
+	local threatlvl = rndScale * attackType
     Sector():broadcastChatMessage("Server"%_t, 2, string.format("Pirates are attacking the sector! Scanner show a threat level of : %i)."%_t, threatlvl))
-	
+
 	if attackType == 10 then
         reward = 5.0 * rndScale
-        
+
 		Sector():broadcastChatMessage("Server"%_t, 2, "The whole pirate fleet appeared for a retaliation strike! Fight for your lives!"%_t)
 		rndScaleFactor = rndScaleFactor + 0.5
         generator:createScaledBoss(MatrixLookUpPosition(-dir, up, pos), rndScaleFactor)
@@ -112,12 +112,12 @@ function PirateAttack.initialize()
         generator:createScaledMarauder(MatrixLookUpPosition(-dir, up, pos + right * distance * 6.0), rndScaleFactor)
         generator:createScaledPirate(MatrixLookUpPosition(-dir, up, pos + right * -distance * 7.0), rndScaleFactor)
         generator:createScaledPirate(MatrixLookUpPosition(-dir, up, pos + right * distance * 7.0), rndScaleFactor)
-	    
+
 	elseif attackType == 9 then
         reward = 3.0 * rndScale
-        
+
 		Sector():broadcastChatMessage("Server"%_t, 2, "A pirate flagship appeared!"%_t)
-	
+
         generator:createScaledBoss(MatrixLookUpPosition(-dir, up, pos), rndScaleFactor)
         generator:createScaledPirate(MatrixLookUpPosition(-dir, up, pos + right * distance), rndScaleFactor)
         generator:createScaledPirate(MatrixLookUpPosition(-dir, up, pos + right * -distance), rndScaleFactor)
@@ -133,12 +133,12 @@ function PirateAttack.initialize()
         generator:createScaledMarauder(MatrixLookUpPosition(-dir, up, pos + right * distance * 6.0), rndScaleFactor)
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos + right * -distance * 7.0), rndScaleFactor)
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos + right * distance * 7.0), rndScaleFactor)
-	
+
 	elseif attackType == 8 then
         reward = 2.0 * rndScale
-		
+
         Sector():broadcastChatMessage("Server"%_t, 2, "A huge pirate fleet appeared!"%_t)
-		
+
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos), rndScaleFactor)
         generator:createScaledPirate(MatrixLookUpPosition(-dir, up, pos + right * distance), rndScaleFactor)
         generator:createScaledPirate(MatrixLookUpPosition(-dir, up, pos + right * -distance), rndScaleFactor)
@@ -152,24 +152,24 @@ function PirateAttack.initialize()
         generator:createScaledOutlaw(MatrixLookUpPosition(-dir, up, pos + right * distance * 5.0), rndScaleFactor)
         generator:createScaledMarauder(MatrixLookUpPosition(-dir, up, pos + right * -distance * 6.0), rndScaleFactor)
         generator:createScaledMarauder(MatrixLookUpPosition(-dir, up, pos + right * distance * 6.0), rndScaleFactor)
-		
-	
+
+
 	elseif attackType == 7 then
         reward = 1.5 * rndScale
-		
+
         Sector():broadcastChatMessage("Server"%_t, 2, "A raider elite group appeared!"%_t)
-		
+
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos), rndScaleFactor)
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos + right * distance), rndScaleFactor)
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos + right * -distance), rndScaleFactor)
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos + right * -distance * 2.0), rndScaleFactor)
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos + right * distance * 2.0), rndScaleFactor)
-		
+
 	elseif attackType == 6 then
         reward = 1.25 * rndScale
-		
+
         Sector():broadcastChatMessage("Server"%_t, 2, "A pirate raid fleet appeared!"%_t)
-		
+
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos), rndScaleFactor)
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos + right * distance), rndScaleFactor)
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos + right * -distance), rndScaleFactor)
@@ -177,10 +177,10 @@ function PirateAttack.initialize()
         generator:createScaledOutlaw(MatrixLookUpPosition(-dir, up, pos + right * distance * 2.0), rndScaleFactor)
         generator:createScaledOutlaw(MatrixLookUpPosition(-dir, up, pos + right * -distance * 3.0), rndScaleFactor)
         generator:createScaledOutlaw(MatrixLookUpPosition(-dir, up, pos + right * distance * 3.0), rndScaleFactor)
-	
+
 	elseif attackType == 5 then
         reward = 1.0 * rndScale
-		
+
         Sector():broadcastChatMessage("Server"%_t, 2, "A pirate raid appeared!"%_t)
 
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos), rndScaleFactor)
@@ -194,14 +194,14 @@ function PirateAttack.initialize()
         reward = 0.75 * rndScale
 
         Sector():broadcastChatMessage("Server"%_t, 2, "A small pirate raid appeared!"%_t)
-		
+
         generator:createScaledRaider(MatrixLookUpPosition(-dir, up, pos), rndScaleFactor)
         generator:createScaledBandit(MatrixLookUpPosition(-dir, up, pos + right * distance), rndScaleFactor)
         generator:createScaledBandit(MatrixLookUpPosition(-dir, up, pos + right * -distance), rndScaleFactor)
 
     elseif attackType == 3 then
         reward = 0.5 * rndScale
-		
+
         Sector():broadcastChatMessage("Server"%_t, 2, "A small group of bandits appeared!"%_t)
 
         generator:createScaledBandit(MatrixLookUpPosition(-dir, up, pos), rndScaleFactor)
@@ -210,17 +210,17 @@ function PirateAttack.initialize()
 
     elseif attackType == 2 then
         reward = 0.5 * rndScale
-		
+
         Sector():broadcastChatMessage("Server"%_t, 2, "A small group of pirates appeared!"%_t)
 
         generator:createScaledPirate(MatrixLookUpPosition(-dir, up, pos), rndScaleFactor)
         generator:createScaledPirate(MatrixLookUpPosition(-dir, up, pos + right * distance), rndScaleFactor)
-        generator:createScaledPirate(MatrixLookUpPosition(-dir, up, pos + right * -distance), rndScaleFactor)	
+        generator:createScaledPirate(MatrixLookUpPosition(-dir, up, pos + right * -distance), rndScaleFactor)
     else
         reward = 0.25 * rndScale
 
         Sector():broadcastChatMessage("Server"%_t, 2, "A small group of outlaws appeared!"%_t)
-		
+
         generator:createScaledOutlaw(MatrixLookUpPosition(-dir, up, pos), rndScaleFactor)
         generator:createScaledOutlaw(MatrixLookUpPosition(-dir, up, pos + right * distance), rndScaleFactor)
         generator:createScaledOutlaw(MatrixLookUpPosition(-dir, up, pos + right * -distance), rndScaleFactor)
@@ -237,10 +237,10 @@ function PirateAttack.initialize()
 		end
 		reward = reward / 2
 	end
-	
+
     generator:endBatch()
 
-    reputation = reward * 500 
+    reputation = reward * 500
     reward = reward * 7500 * Balancing_GetSectorRichnessFactor(Sector():getCoordinates())
 
 end
@@ -256,11 +256,14 @@ function PirateAttack.createDefender(amount)
 		return
 	end
 	PirateAttack.spawnDefender(faction, amount);
-end	
-	
-	
+end
+
+
 function PirateAttack.spawnDefender(faction, amount)
     local x, y = Sector():getCoordinates()
+    print("spawnDefender 1") --DEBUGREMOVEME
+    --Make ships 3 times larger than default for this distance from core; sadly ships are otherwise too weak.
+    local volume = Balancing_GetSectorShipVolume(Sector():getCoordinates()) * Balancing_GetShipVolumeDeviation() * 3;
 
     local position = random():getDirection() * 1500
     local dir = normalize(-position)
@@ -268,6 +271,7 @@ function PirateAttack.spawnDefender(faction, amount)
     local right = normalize(cross(up, dir))
     up = normalize(cross(right, dir))
 
+    print("spawnDefender 2") --DEBUGREMOVEME
     local onFinished = function(ships)
         for _, ship in pairs(ships) do
             ship:removeScript("entity/antismuggle.lua")
@@ -283,12 +287,14 @@ function PirateAttack.spawnDefender(faction, amount)
     for i = -amount, amount do
         local pos = position + right * i * 100
         local ship
-        generator:createDefender(faction, MatrixLookUpPosition(dir, up, pos))
+        generator:createDefender(faction, MatrixLookUpPosition(dir, up, pos),volume)
     end
     generator:endBatch()
-	
-    Sector():broadcastChatMessage("Server"%_t, 2, "The local faction dispatched a defence fleet!"%_t)
-end	
+
+    print("spawnDefender 3") --DEBUGREMOVEME
+
+    Sector():broadcastChatMessage("Server"%_t, 2, "The local faction dispatched a defense fleet!"%_t)
+end
 
 
 function PirateAttack.getUpdateInterval()
@@ -297,15 +303,26 @@ end
 
 function PirateAttack.onPiratesGenerated(generated)
 
+
+    print("onPiratesGenerated 1") --DEBUGREMOVEME
+
+
+    print("nPiratesGenerated 2") --DEBUGREMOVEME
+
+
     for _, ship in pairs(generated) do
         ships[ship.index.string] = true
         ship:registerCallback("onDestroyed", "onShipDestroyed")
+        ship:addScript("deleteonplayersleft.lua")
     end
+
+    print('onPiratesGenerated 3') --DEBUGREMOVEME
 
     -- resolve intersections between generated ships
     Placer.resolveIntersections(generated)
 
     PirateAttack.attackersGenerated = true
+    print('onPiratesGenerated end') --DEBUGREMOVEME
 end
 
 function PirateAttack.update(timeStep)
@@ -348,7 +365,7 @@ end
 function PirateAttack.endEvent()
 
     local faction = Galaxy():getLocalFaction(Sector():getCoordinates())
-    if faction then
+    if faction and reward > 0 then
 
         local messages =
         {
@@ -357,7 +374,7 @@ function PirateAttack.endEvent()
             "Thank you for taking care of those pirates. We transferred a reward to your account."%_t,
         }
 
-        -- give payment to players who participated
+        --Give payment to players who participated
         for i, v in pairs(participants) do
             local player = Player(i)
 
