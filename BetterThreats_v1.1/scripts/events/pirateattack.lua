@@ -261,7 +261,7 @@ end
 
 function PirateAttack.spawnDefender(faction, amount)
     local x, y = Sector():getCoordinates()
-    print("spawnDefender 1") --DEBUGREMOVEME
+
     --Make ships 3 times larger than default for this distance from core; sadly ships are otherwise too weak.
     local volume = Balancing_GetSectorShipVolume(Sector():getCoordinates()) * Balancing_GetShipVolumeDeviation() * 3;
 
@@ -271,7 +271,6 @@ function PirateAttack.spawnDefender(faction, amount)
     local right = normalize(cross(up, dir))
     up = normalize(cross(right, dir))
 
-    print("spawnDefender 2") --DEBUGREMOVEME
     local onFinished = function(ships)
         for _, ship in pairs(ships) do
             ship:removeScript("entity/antismuggle.lua")
@@ -291,8 +290,6 @@ function PirateAttack.spawnDefender(faction, amount)
     end
     generator:endBatch()
 
-    print("spawnDefender 3") --DEBUGREMOVEME
-
     Sector():broadcastChatMessage("Server"%_t, 2, "The local faction dispatched a defense fleet!"%_t)
 end
 
@@ -303,26 +300,18 @@ end
 
 function PirateAttack.onPiratesGenerated(generated)
 
-
-    print("onPiratesGenerated 1") --DEBUGREMOVEME
-
-
-    print("nPiratesGenerated 2") --DEBUGREMOVEME
-
-
     for _, ship in pairs(generated) do
         ships[ship.index.string] = true
         ship:registerCallback("onDestroyed", "onShipDestroyed")
         ship:addScript("deleteonplayersleft.lua")
     end
 
-    print('onPiratesGenerated 3') --DEBUGREMOVEME
+
 
     -- resolve intersections between generated ships
     Placer.resolveIntersections(generated)
 
     PirateAttack.attackersGenerated = true
-    print('onPiratesGenerated end') --DEBUGREMOVEME
 end
 
 function PirateAttack.update(timeStep)
