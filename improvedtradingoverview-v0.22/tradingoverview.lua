@@ -775,7 +775,15 @@ function refreshRoutesUI()
 					end
 
 					routeIcons[index].tooltip = icontooltip
-	-- end improved trading overview mod
+
+		             if j == 2 then
+		                if offer.amountOnShip > 0 then
+		                    routeAmountOnShipLabels[index].caption = offer.amountOnShip
+		                else
+		                    routeAmountOnShipLabels[index].caption = "-"
+		                end
+		                routeAmountOnShipLabels[index]:show()
+    	            end
 
 					routePriceLabels[index][j]:show()
 					routeStationLabels[index][j]:show()
